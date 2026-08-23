@@ -61,12 +61,12 @@ export default function Products() {
                             className="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-black bg-background duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20"
                         >
                             {/* Image Container */}
-                            <div className="relative w-full h-64 bg-background overflow-hidden">
+                            <div className="relative h-64 w-full bg-background p-3 sm:p-4">
                                 {product.image ? (
                                     <img
                                         src={product.image}
                                         alt={product.name}
-                                        className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+                                        className="h-full w-full rounded-lg object-cover transition duration-500 group-hover:scale-105"
                                     />
                                 ) : (
                                     <div className="flex items-center justify-center h-full text-gray-500 bg-background">
