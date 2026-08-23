@@ -1,6 +1,7 @@
 import type { Item, Resource } from "./types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api";
+const configuredApiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api";
+const API_URL = `${configuredApiUrl.replace(/\/+$/, "")}${configuredApiUrl.replace(/\/+$/, "").endsWith("/api") ? "" : "/api"}`;
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, { cache: "no-store", ...init });
