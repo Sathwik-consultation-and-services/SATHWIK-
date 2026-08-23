@@ -23,10 +23,10 @@ export default function Services() {
     useEffect(() => {
         const loadServices = async () => {
             try {
-                const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api").replace(/\/+$/, "");
+                const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "https://sathwik-consultations-services-backend.onrender.com/api").replace(/\/+$/, "");
                 const apiBase = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
                 const response = await axios.get(`${apiBase}/services/get`);
-                setServices(response.data);
+                setServices(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch services:', error);
             } finally {

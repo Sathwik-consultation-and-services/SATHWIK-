@@ -23,10 +23,10 @@ export default function Products() {
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api").replace(/\/+$/, "");
+                const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "https://sathwik-consultations-services-backend.onrender.com/api").replace(/\/+$/, "");
                 const apiBase = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
                 const response = await axios.get(`${apiBase}/products/get`);
-                setProducts(response.data);
+                setProducts(Array.isArray(response.data) ? response.data : []);
             } catch (error) {
                 console.error('Failed to fetch products:', error);
             } finally {
