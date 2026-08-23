@@ -66,10 +66,10 @@ export default function Home() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <article key={product.id} className="overflow-hidden rounded-xl border-2 border-black bg-background">
-                <div className="h-52 w-full bg-background">
+                <div className="h-56 w-full bg-background p-4 sm:p-5">
                   {product.image ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
+                    <img src={product.image} alt={product.name} className="h-full w-full rounded-lg object-contain" />
                   ) : (
                     <div className="flex h-full items-center justify-center text-gray-500">No image</div>
                   )}
