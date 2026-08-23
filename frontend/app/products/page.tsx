@@ -5,6 +5,8 @@ import Image from 'next/image';
 import axios from 'axios';
 import EnquireModal from '@/components/EnquireModal';
 
+/* eslint-disable @next/next/no-img-element */
+
 interface Product {
     id: string;
     name: string;
@@ -61,7 +63,6 @@ export default function Products() {
                             {/* Image Container */}
                             <div className="relative w-full h-64 bg-background overflow-hidden">
                                 {product.image ? (
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={product.image}
                                         alt={product.name}
