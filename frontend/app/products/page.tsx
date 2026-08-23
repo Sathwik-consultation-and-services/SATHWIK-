@@ -42,7 +42,7 @@ export default function Products() {
     }
 
     return (
-        <div className="min-h-screen bg-linear-to-br  py-16">
+            <div className="min-h-screen bg-background py-16">
             {/* Header */}
             <div className="text-center mb-16">
                 <h1 className="text-5xl md:text-6xl font-bold  mb-4">Our Products</h1>
@@ -54,10 +54,10 @@ export default function Products() {
                     {products.map((product) => (
                         <div
                             key={product.id}
-                            className="group duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20"
+                            className="group bg-background duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20"
                         >
                             {/* Image Container */}
-                            <div className="relative w-full h-64 bg-gray-800 overflow-hidden">
+                            <div className="relative w-full h-64 bg-background overflow-hidden">
                                 {product.image ? (
                                     <Image
                                         src={product.image}
@@ -68,7 +68,7 @@ export default function Products() {
                                         priority={false}
                                     />
                                 ) : (
-                                    <div className="flex items-center justify-center h-full text-gray-500 bg-linear-to-br from-gray-700 to-gray-800">
+                                    <div className="flex items-center justify-center h-full text-gray-500 bg-background">
                                         <svg className="w-16 h-16 opacity-30" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                                         </svg>
@@ -78,11 +78,11 @@ export default function Products() {
 
                             {/* Content */}
                             <div className="p-6 flex flex-col h-full">
-                                <h2 className="text-2xl font-bold text-white mb-3 line-clamp-2 group-hover:text-blue-400 transition">{product.name}</h2>
-                                <p className="text-gray-400 text-sm mb-6 grow line-clamp-3">{product.description}</p>
+                                <h2 className="text-2xl font-bold text-slate-950 mb-3 line-clamp-2 group-hover:text-blue-400 transition">{product.name}</h2>
+                                <p className="text-gray-700 text-sm mb-6 grow line-clamp-3">{product.description}</p>
                                 <button
                                     onClick={() => handleEnquireNow(product)}
-                                    className="w-full bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-500/50"
+                                    className="w-full border-2 border-black bg-background text-slate-950 font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 hover:bg-slate-950 hover:text-white active:scale-95 shadow-lg"
                                 >
                                     Enquire Now
                                 </button>

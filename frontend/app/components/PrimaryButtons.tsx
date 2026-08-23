@@ -7,7 +7,7 @@ export const PrimaryButtons = ({ children, onClick, className }: {
     onClick : () => void,
     className?: string
 }) => (
-    <Button className={cn("hover:cursor-pointer w-fit min-w-36 min-h-11 px-5 text-base bg-white text-slate-950 hover:bg-slate-950 hover:text-white", className)} type="button" onClick={onClick} id="font">
+    <Button className={cn("hover:cursor-pointer w-fit min-w-36 min-h-11 px-5 text-base bg-background text-slate-950 border-black hover:bg-slate-950 hover:text-white", className)} type="button" onClick={onClick} id="font">
         {children}
     </Button>
 );

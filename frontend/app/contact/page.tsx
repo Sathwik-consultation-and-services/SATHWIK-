@@ -39,7 +39,7 @@ export default function Contact() {
     };
 
     return (
-        <section className="bg-white dark:from-orange-950/40 dark:via-background dark:to-background">
+        <section className="bg-background dark:from-orange-950/40 dark:via-background dark:to-background">
             <div className="mx-auto flex w-full max-w-3xl flex-col items-center px-4 py-12 text-center sm:px-6 md:py-24">
                 {/* Header */}
                 <div className="space-y-4">
@@ -103,8 +103,8 @@ export default function Contact() {
                 {/* Faded dashed divider */}
                 <div className="relative mt-8 w-full sm:mt-10">
                     <div className="border-border border-t border-dashed" />
-                    <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" />
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-background to-transparent" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-background to-transparent" />
                 </div>
 
                 {/* Form */}
