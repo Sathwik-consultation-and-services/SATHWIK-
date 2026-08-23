@@ -4,7 +4,7 @@ export default function About() {
                 Comp PRofile
         </div>
         <div className="w-3/4 h-3/4 bg-red-700">
-                PRofile
+                Profile
         </div>
         <div className="w-3/4 h-1/5 bg-amber-400">
             Associate 
