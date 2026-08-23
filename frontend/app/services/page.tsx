@@ -21,7 +21,9 @@ export default function Services() {
     useEffect(() => {
         const loadServices = async () => {
             try {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}services`);
+                const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api").replace(/\/+$/, "");
+                const apiBase = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
+                const response = await axios.get(`${apiBase}/services/get`);
                 setServices(response.data);
             } catch (error) {
                 console.error('Failed to fetch services:', error);
