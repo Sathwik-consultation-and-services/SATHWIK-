@@ -31,7 +31,7 @@ export const Footer = () => {
                             <path fill="#34A853" d="M12 12v10s2.34-2.58 4.23-5.78l-4.23-4.22Z" />
                             <circle cx="12" cy="9" r="2.5" fill="white" />
                         </svg>
-                        <span>Visit our location</span>
+                        <span>Directions</span>
                     </a>
                     <address className="mt-3 pl-7 text-xs not-italic leading-5 text-gray-600">
                         <span className="block">A-306, KONCEPT NEST APARTMENT</span>

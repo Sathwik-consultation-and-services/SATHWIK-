@@ -18,7 +18,7 @@ export default function EnquireModal({ product, onClose }: EnquireModalProps) {
     const [loading, setLoading] = useState(false);
 
     // Replace with your actual business contact details
-    const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'info@sathwik.com';
+    const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'sathwikms17@gmail.com';
     const BUSINESS_WHATSAPP = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP || '+919999999999';
 
     const handleEmailClick = async () => {
@@ -26,8 +26,12 @@ export default function EnquireModal({ product, onClose }: EnquireModalProps) {
         const subject = `Enquiry about ${product.name}`;
         const body = `Hi,\n\nI am interested in knowing more about ${product.name}.\n\nProduct Description: ${product.description}\n\nPlease provide more details.\n\nThank you.`;
         
-        // Open default mail client
-        window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoUrl = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(BUSINESS_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+        window.setTimeout(() => {
+            window.location.href = mailtoUrl;
+        }, 300);
         
         setTimeout(() => {
             setLoading(false);

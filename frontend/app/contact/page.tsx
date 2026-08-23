@@ -35,6 +35,22 @@ export default function Contact() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const subject = "Consultation Request";
+        const body = [
+            `Name: ${formData.get("name")}`,
+            `Email: ${formData.get("email")}`,
+            `Company: ${formData.get("company") || "Not provided"}`,
+            `Contact Number: ${formData.get("headcount") || "Not provided"}`,
+            "",
+            `Message:\n${formData.get("message")}`,
+        ].join("\n");
+        const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(gmailUrl, "_blank", "noopener,noreferrer");
+        window.setTimeout(() => {
+            window.location.href = mailtoUrl;
+        }, 300);
         setSubmitted(true);
     };
 

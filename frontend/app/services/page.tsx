@@ -56,18 +56,16 @@ export default function Services() {
                     {services.map((service) => (
                         <div
                             key={service.id}
-                            className="group bg-background rounded-2xl overflow-hidden border border-gray-700 hover:border-green-500 transition duration-300 shadow-lg hover:shadow-2xl hover:shadow-green-500/20"
+                            className="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-black bg-background transition duration-300 shadow-lg hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/20"
                         >
                             {/* Image Container */}
                             <div className="relative w-full h-64 bg-background overflow-hidden">
                                 {service.image ? (
-                                    <Image
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
                                         src={service.image}
                                         alt={service.name}
-                                        fill
-                                        className="object-cover group-hover:scale-110 transition duration-500"
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        priority={false}
+                                        className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
                                     />
                                 ) : (
                                     <div className="flex items-center justify-center h-full text-gray-500 bg-background">
@@ -79,9 +77,9 @@ export default function Services() {
                             </div>
 
                             {/* Content */}
-                            <div className="p-6 flex flex-col h-full">
+                            <div className="flex flex-1 flex-col p-6">
                                 <h2 className="text-2xl font-bold text-slate-950 mb-3 line-clamp-2 group-hover:text-green-400 transition">{service.name}</h2>
-                                <p className="text-gray-700 text-sm mb-6 grow line-clamp-3">{service.description}</p>
+                                <p className="mb-6 line-clamp-3 flex-1 text-sm text-gray-700">{service.description}</p>
                                 <button
                                     onClick={() => handleEnquireNow(service)}
                                     className="w-full border-2 border-black bg-background text-slate-950 font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 hover:bg-slate-950 hover:text-white active:scale-95 shadow-lg"
