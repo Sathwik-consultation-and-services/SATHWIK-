@@ -10,9 +10,18 @@ interface Product {
   description: string;
 }
 
+interface Service {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+}
+
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [productsLoading, setProductsLoading] = useState(true);
+  const [services, setServices] = useState<Service[]>([]);
+  const [servicesLoading, setServicesLoading] = useState(true);
   const router = useRouter()
 
   const navigatetoproduct = () => {
@@ -41,6 +50,24 @@ export default function Home() {
       }
     };
     loadProducts();
+
+    const loadServices = async () => {
+      try {
+        const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "https://sathwik-consultations-services-backend.onrender.com/api").replace(/\/+$/, "");
+        const apiBase = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
+        const response = await fetch(`${apiBase}/services/get`);
+        if (!response.ok) {
+          throw new Error(`Services request failed with status ${response.status}`);
+        }
+        const data = await response.json();
+        setServices(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Failed to fetch services:", error);
+      } finally {
+        setServicesLoading(false);
+      }
+    };
+    loadServices();
   }, []);
 
   return (
@@ -85,14 +112,38 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <div className="w-[90%] rounded-2xl p-6 md:p-8 bg-linear-to-br border-2 border-black hover:shadow-2xl transition-shadow duration-300 min-h-96 flex flex-col justify-between">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-3">Services</h2>
+      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <h2 className="mb-3 text-3xl font-bold text-slate-950 md:text-4xl">Services</h2>
+          <PrimaryButtons onClick={navigatetoservice}>
+            View Services
+          </PrimaryButtons>
         </div>
-        <PrimaryButtons onClick={navigatetoservice}>
-          View Services
-        </PrimaryButtons>
-      </div>
+        {servicesLoading ? (
+          <p className="py-10 text-center text-gray-600">Loading services...</p>
+        ) : services.length === 0 ? (
+          <p className="py-10 text-center text-gray-600">No services available yet.</p>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <article key={service.id} className="overflow-hidden rounded-xl border-2 border-black bg-background">
+                <div className="aspect-video w-full bg-background p-2 sm:p-3">
+                  {service.image ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={service.image} alt={service.name} className="h-full w-full rounded-lg object-cover" />
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-gray-500">No image</div>
+                  )}
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="text-xl font-bold text-slate-950">{service.name}</h3>
+                  <p className="mt-2 line-clamp-3 text-sm text-gray-700">{service.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
 
     </div>
   );
