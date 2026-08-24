@@ -19,7 +19,7 @@ export const Footer = () => {
                 </li>
                 <li className="max-w-xs">
                     <a
-                        href="https://share.google/Lr1zNUTTa4oxEa1j5"
+                        href="https://maps.app.goo.gl/EAZ9hMtq8povLyAZA?g_st=aw"
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-black"
@@ -31,7 +31,7 @@ export const Footer = () => {
                             <path fill="#34A853" d="M12 12v10s2.34-2.58 4.23-5.78l-4.23-4.22Z" />
                             <circle cx="12" cy="9" r="2.5" fill="white" />
                         </svg>
-                        <span>Directions</span>
+                        <span>SATHWIK CONSULTATION AND SERVICES</span>
                     </a>
                     <address className="mt-3 pl-7 text-xs not-italic leading-5 text-gray-600">
                         <span className="block">A-306, KONCEPT NEST APARTMENT</span>
