@@ -79,7 +79,9 @@ export default function Contact() {
                         <Mail className="text-muted-foreground size-4 shrink-0" />
                         <span className="text-muted-foreground">Email us at</span>
                         <a
-                            href={`mailto:${emailAddress}?subject=${encodeURIComponent("Consultation Request")}`}
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent("Consultation Request")}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="font-medium underline-offset-4 hover:underline"
                         >
                             {emailAddress}
@@ -154,7 +156,7 @@ export default function Contact() {
                                 Contact Number{" "}
                                 <span className="text-muted-foreground"></span>
                             </Label>
-                            <Input id="headcount" name="headcount" placeholder="1-10" />
+                            <Input id="headcount" name="headcount" placeholder="+91 9999999999" />
                         </div>
                     </div>
 
