@@ -20,6 +20,11 @@ export default function Home() {
   const [productsLoading, setProductsLoading] = useState(true);
   const [services, setServices] = useState<Service[]>([]);
   const [servicesLoading, setServicesLoading] = useState(true);
+
+  const openPage = (path: string) => {
+    window.location.assign(path);
+  };
+
   useEffect(() => {
     const loadProducts = async () => {
       try {
@@ -66,9 +71,17 @@ export default function Home() {
       </div>
 
       {/* Products Section */}
-      <a
-        href="/products"
+      <section
         className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
+        onClick={() => openPage("/products")}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openPage("/products");
+          }
+        }}
+        role="link"
+        tabIndex={0}
         aria-label="View all products"
       >
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
@@ -101,12 +114,20 @@ export default function Home() {
             ))}
           </div>
         )}
-      </a>
+      </section>
 
       {/* Services Section */}
-      <a
-        href="/services"
+      <section
         className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
+        onClick={() => openPage("/services")}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openPage("/services");
+          }
+        }}
+        role="link"
+        tabIndex={0}
         aria-label="View all services"
       >
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
@@ -139,7 +160,7 @@ export default function Home() {
             ))}
           </div>
         )}
-      </a>
+      </section>
 
     </div>
   );
