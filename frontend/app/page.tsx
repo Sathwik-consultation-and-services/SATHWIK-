@@ -72,7 +72,7 @@ export default function Home() {
 
       {/* Products Section */}
       <section
-        className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
+        className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8"
         onClick={() => openPage("/products")}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
@@ -118,7 +118,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section
-        className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
+        className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8"
         onClick={() => openPage("/services")}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {

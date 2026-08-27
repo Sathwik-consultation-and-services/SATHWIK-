@@ -9,7 +9,7 @@ export default function About() {
                         About Us
                     </p>
                     <h1 className="text-4xl font-bold text-slate-950 md:text-5xl">
-                        Solar expertise with a practical purpose
+                        Solar Expertise With a Practical Purpose
                     </h1>
                 </header>
 

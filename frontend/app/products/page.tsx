@@ -79,11 +79,11 @@ export default function Products() {
 
                             {/* Content */}
                             <div className="flex flex-1 flex-col p-6">
-                                <h2 className="text-2xl font-bold text-slate-950 mb-3 line-clamp-2 group-hover:text-blue-400 transition">{product.name}</h2>
+                                <h2 className="text-2xl font-bold text-slate-950 mb-3 line-clamp-2">{product.name}</h2>
                                 <p className="mb-6 line-clamp-3 flex-1 text-sm text-gray-700">{product.description}</p>
                                 <button
                                     onClick={() => handleEnquireNow(product)}
-                                    className="w-full border-2 border-black bg-background text-slate-950 font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 hover:bg-slate-950 hover:text-white active:scale-95 shadow-lg"
+                                    className="w-full cursor-pointer border-2 border-black bg-background text-slate-950 font-semibold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 hover:bg-slate-950 hover:text-white active:scale-95 shadow-lg"
                                 >
                                     Enquire Now
                                 </button>
