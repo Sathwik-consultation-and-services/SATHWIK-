@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import { PrimaryButtons } from "./components/PrimaryButtons";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Product {
   id: string;
@@ -22,16 +21,6 @@ export default function Home() {
   const [productsLoading, setProductsLoading] = useState(true);
   const [services, setServices] = useState<Service[]>([]);
   const [servicesLoading, setServicesLoading] = useState(true);
-  const router = useRouter()
-
-  const navigatetoproduct = () => {
-    router.push("/products");
-  }
-
-  const navigatetoservice = () => {
-    router.push('/services')
-  }
-
   useEffect(() => {
     const loadProducts = async () => {
       try {
@@ -78,24 +67,16 @@ export default function Home() {
       </div>
 
       {/* Products Section */}
-      <section
-        className="w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
-        onClick={navigatetoproduct}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            navigatetoproduct();
-          }
-        }}
-        role="link"
-        tabIndex={0}
+      <Link
+        href="/products"
+        className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
         aria-label="View all products"
       >
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-3">Products</h2>
-          <PrimaryButtons onClick={navigatetoproduct}>
+          <span className="w-fit min-w-36 rounded-md border border-black bg-background px-5 py-2.5 text-center text-base text-slate-950 transition hover:bg-slate-950 hover:text-white">
             View Products
-          </PrimaryButtons>
+          </span>
         </div>
         {productsLoading ? (
           <p className="py-10 text-center text-gray-600">Loading products...</p>
@@ -121,27 +102,19 @@ export default function Home() {
             ))}
           </div>
         )}
-      </section>
+      </Link>
 
       {/* Services Section */}
-      <section
-        className="w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
-        onClick={navigatetoservice}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            navigatetoservice();
-          }
-        }}
-        role="link"
-        tabIndex={0}
+      <Link
+        href="/services"
+        className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
         aria-label="View all services"
       >
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <h2 className="mb-3 text-3xl font-bold text-slate-950 md:text-4xl">Services</h2>
-          <PrimaryButtons onClick={navigatetoservice}>
+          <span className="w-fit min-w-36 rounded-md border border-black bg-background px-5 py-2.5 text-center text-base text-slate-950 transition hover:bg-slate-950 hover:text-white">
             View Services
-          </PrimaryButtons>
+          </span>
         </div>
         {servicesLoading ? (
           <p className="py-10 text-center text-gray-600">Loading services...</p>
@@ -167,7 +140,7 @@ export default function Home() {
             ))}
           </div>
         )}
-      </section>
+      </Link>
 
     </div>
   );
