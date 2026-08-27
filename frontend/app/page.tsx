@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 interface Product {
   id: string;
@@ -67,7 +66,7 @@ export default function Home() {
       </div>
 
       {/* Products Section */}
-      <Link
+      <a
         href="/products"
         className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
         aria-label="View all products"
@@ -102,10 +101,10 @@ export default function Home() {
             ))}
           </div>
         )}
-      </Link>
+      </a>
 
       {/* Services Section */}
-      <Link
+      <a
         href="/services"
         className="block w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
         aria-label="View all services"
@@ -140,7 +139,7 @@ export default function Home() {
             ))}
           </div>
         )}
-      </Link>
+      </a>
 
     </div>
   );
