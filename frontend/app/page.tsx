@@ -78,7 +78,7 @@ export default function Home() {
       </div>
 
       {/* Products Section */}
-      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8">
+      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8 " onClick={navigatetoproduct}>
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-3">Products</h2>
           <PrimaryButtons onClick={navigatetoproduct}>
@@ -112,7 +112,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8">
+      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8" onClick={navigatetoservice}>
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <h2 className="mb-3 text-3xl font-bold text-slate-950 md:text-4xl">Services</h2>
           <PrimaryButtons onClick={navigatetoservice}>
