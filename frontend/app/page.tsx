@@ -78,7 +78,19 @@ export default function Home() {
       </div>
 
       {/* Products Section */}
-      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8 " onClick={navigatetoproduct}>
+      <section
+        className="w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
+        onClick={navigatetoproduct}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            navigatetoproduct();
+          }
+        }}
+        role="link"
+        tabIndex={0}
+        aria-label="View all products"
+      >
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-3">Products</h2>
           <PrimaryButtons onClick={navigatetoproduct}>
@@ -112,7 +124,19 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="w-[90%] rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:p-8" onClick={navigatetoservice}>
+      <section
+        className="w-[90%] cursor-pointer rounded-2xl border-2 border-black bg-background p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 md:p-8"
+        onClick={navigatetoservice}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            navigatetoservice();
+          }
+        }}
+        role="link"
+        tabIndex={0}
+        aria-label="View all services"
+      >
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <h2 className="mb-3 text-3xl font-bold text-slate-950 md:text-4xl">Services</h2>
           <PrimaryButtons onClick={navigatetoservice}>
