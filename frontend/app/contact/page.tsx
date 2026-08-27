@@ -104,18 +104,6 @@ export default function Contact() {
                         </a>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                        {socials.map((social) => (
-                            <a
-                                key={social.label}
-                                href={social.href}
-                                aria-label={social.label}
-                                className="text-muted-foreground hover:text-foreground transition-colors [&_svg]:size-4"
-                            >
-                                {social.icon}
-                            </a>
-                        ))}
-                    </div>
                 </div>
 
                 {/* Faded dashed divider */}
