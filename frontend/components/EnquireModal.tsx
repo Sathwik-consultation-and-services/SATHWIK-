@@ -68,7 +68,7 @@ export default function EnquireModal({ product, onClose }: EnquireModalProps) {
                     <button
                         onClick={handleEmailClick}
                         disabled={loading}
-                        className={`w-full p-4 rounded-lg border-2 transition ${
+                        className={`w-full cursor-pointer p-4 rounded-lg border-2 transition ${
                             contactMethod === 'email'
                                 ? 'border-blue-500 bg-blue-500 bg-opacity-10'
                                 : 'border-gray-600 bg-gray-800 hover:border-gray-500'
@@ -87,7 +87,7 @@ export default function EnquireModal({ product, onClose }: EnquireModalProps) {
                     <button
                         onClick={handleWhatsAppClick}
                         disabled={loading}
-                        className={`w-full p-4 rounded-lg border-2 transition ${
+                        className={`w-full cursor-pointer p-4 rounded-lg border-2 transition ${
                             contactMethod === 'whatsapp'
                                 ? 'border-green-500 bg-green-500 bg-opacity-10'
                                 : 'border-gray-600 bg-gray-800 hover:border-gray-500'
@@ -114,7 +114,7 @@ export default function EnquireModal({ product, onClose }: EnquireModalProps) {
                 <button
                     onClick={onClose}
                     disabled={loading}
-                    className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition disabled:opacity-50"
+                    className="w-full cursor-pointer bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition disabled:cursor-not-allowed disabled:opacity-50"
                 >
                     {loading ? 'Opening...' : 'Close'}
                 </button>
