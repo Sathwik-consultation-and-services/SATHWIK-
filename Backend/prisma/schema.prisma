@@ -25,3 +25,57 @@ model Service {
   image       String
   description String
 }
+
+model AboutPage {
+  id        String         @id
+  heading   String
+  subtitle  String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  sections  AboutSection[]
+}
+
+model AboutSection {
+  id              String          @id @default(uuid())
+  pageId          String
+  page            AboutPage       @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  type            String
+  label           String
+  title           String
+  imageUrl        String          @default("")
+  imageAlt        String          @default("")
+  designation     String          @default("")
+  qualifications  String          @default("")
+  introduction    String          @default("")
+  experience      String          @default("")
+  visible         Boolean         @default(true)
+  active          Boolean         @default(true)
+  displayOrder    Int
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  blocks          AboutBlock[]
+  activities      AboutActivity[]
+
+  @@index([pageId, displayOrder])
+}
+
+model AboutBlock {
+  id           String       @id @default(uuid())
+  sectionId    String
+  section      AboutSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  kind         String
+  text         String       @default("")
+  displayOrder Int
+
+  @@index([sectionId, displayOrder])
+}
+
+model AboutActivity {
+  id           String       @id @default(uuid())
+  sectionId    String
+  section      AboutSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  text         String
+  displayOrder Int
+
+  @@index([sectionId, displayOrder])
+}

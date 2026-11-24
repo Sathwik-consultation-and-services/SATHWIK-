@@ -1,4 +1,4 @@
-import type { Item, Resource } from "./types";
+import type { AboutPage, AboutSection, Item, Resource } from "./types";
 
 const configuredApiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api";
 const API_URL = `${configuredApiUrl.replace(/\/+$/, "")}${configuredApiUrl.replace(/\/+$/, "").endsWith("/api") ? "" : "/api"}`;
@@ -34,6 +34,81 @@ export async function editItem(resource: Resource, id: string, body: Omit<Item, 
 
 export async function deleteItem(resource: Resource, id: string): Promise<void> {
   await request<void>(`/${resource}/delete/${id}`, { method: "DELETE" });
+}
+
+export async function getAboutAdmin(): Promise<AboutPage> {
+  return request<AboutPage>("/about/admin");
+}
+
+export async function updateAboutPage(body: {
+  heading: string;
+  subtitle: string;
+  sections: AboutSection[];
+}): Promise<AboutPage> {
+  return request<AboutPage>("/about/update", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export async function createAboutSection(body: Partial<AboutSection>): Promise<AboutSection> {
+  return request<AboutSection>("/about/sections", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export async function updateAboutSection(id: string, body: Partial<AboutSection>): Promise<AboutSection> {
+  return request<AboutSection>(`/about/sections/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export async function deleteAboutSection(id: string): Promise<void> {
+  await request<void>(`/about/sections/${id}`, { method: "DELETE" });
+}
+
+export async function createAssociate(body: Partial<AboutSection>): Promise<AboutSection> {
+  return request<AboutSection>("/about/associates", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export async function updateAssociate(id: string, body: Partial<AboutSection>): Promise<AboutSection> {
+  return request<AboutSection>(`/about/associates/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export async function deleteAssociate(id: string): Promise<void> {
+  await request<void>(`/about/associates/${id}`, { method: "DELETE" });
+}
+
+export async function reorderAbout(ids: string[]): Promise<AboutPage> {
+  return request<AboutPage>("/about/reorder", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ids }),
+  });
+}
+
+export async function updateAboutVisibility(
+  id: string,
+  body: { visible: boolean; active?: boolean }
+): Promise<AboutSection> {
+  return request<AboutSection>(`/about/sections/${id}/visibility`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
 }
 
 export async function uploadImage(file: File): Promise<string> {

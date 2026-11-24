@@ -6,9 +6,10 @@ import { uploadImage } from "@/lib/api";
 interface Props {
   value: string;
   onChange: (url: string) => void;
+  label?: string;
 }
 
-export default function ImageUpload({ value, onChange }: Props) {
+export default function ImageUpload({ value, onChange, label = "Image (Cloudinary)" }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +33,7 @@ export default function ImageUpload({ value, onChange }: Props) {
 
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-medium text-gray-700">Image (Cloudinary)</label>
+      <label className="block text-sm font-medium text-gray-700">{label}</label>
 
       {value ? (
         <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-3">

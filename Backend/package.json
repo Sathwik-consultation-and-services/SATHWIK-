@@ -6,6 +6,7 @@
   "scripts": {
     "build": "prisma generate && tsc",
     "start": "node dist/server.js",
+    "seed:about": "prisma generate && tsc && node dist/src/about/runSeed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

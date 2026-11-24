@@ -27,6 +27,17 @@ const links = [
     ),
   },
   {
+    href: "/about",
+    label: "About Us",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+      />
+    ),
+  },
+  {
     href: "/services",
     label: "Services",
     icon: (
@@ -43,7 +54,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 shrink-0 bg-slate-900 text-slate-100">
+    <aside className="w-full shrink-0 bg-slate-900 text-slate-100 md:w-64">
       <div className="flex h-16 items-center gap-3 border-b border-slate-800 px-6">
         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 font-bold text-slate-900">
           S
@@ -54,9 +65,9 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <nav className="space-y-1 p-4">
+      <nav className="flex flex-row flex-wrap gap-1 p-4 md:block md:space-y-1">
         {links.map((link) => {
-          const active = pathname === link.href;
+          const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
           return (
             <Link
               key={link.href}
